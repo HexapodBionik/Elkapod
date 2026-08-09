@@ -38,7 +38,7 @@
         <axis xyz="0 0 0" />
     </joint>
 
-    <xacro:macro name="elkapod_sensors_fron_camera" params="sim_mode:=^|false">
+    <xacro:macro name="elkapod_sensors_front_camera" params="sim_mode:=^|false">
         <xacro:if value="${sim_mode}">
             <gazebo reference="front_camera_optical">
                 <sensor name="camera" type="rgbd_camera">

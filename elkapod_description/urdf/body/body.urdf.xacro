@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <link name="base_link"/>
+  <link name="base_link" />
 
   <joint name="base_body_link" type="fixed">
-        <parent link="base_link"/>
-        <child link="body_link"/>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="base_link" />
+    <child link="body_link" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
   </joint>
 
   <link name="body_link">
@@ -15,14 +15,15 @@
         xyz="-0.0015469 0.00072512 -0.0017855"
         rpy="0 0 0" />
       <mass value="2.0043" />
-      <inertia ixx="0.0094039" ixy="0.00013899" ixz="-4.7517E-07" iyy="0.014031" iyz="1.9401E-09" izz="0.023053" />
+      <inertia ixx="0.0094039" ixy="0.00013899" ixz="-4.7517E-07" iyy="0.014031" iyz="1.9401E-09"
+        izz="0.023053" />
     </inertial>
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
         <mesh filename="package://elkapod_description/meshes/body/base_link.STL" />
       </geometry>
-      <material name="aluminium_base"/>
+      <material name="aluminium_base" />
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
@@ -36,14 +37,15 @@
     <inertial>
       <origin xyz="0.004012 0.03538 -0.0033877" rpy="0 0 0" />
       <mass value="0.43861" />
-      <inertia ixx="0.00085006" ixy="-1.6091E-05" ixz="-1.9773E-06" iyy="0.0021513" iyz="1.4281E-05" izz="0.0014553" />
+      <inertia ixx="0.00085006" ixy="-1.6091E-05" ixz="-1.9773E-06" iyy="0.0021513" iyz="1.4281E-05"
+        izz="0.0014553" />
     </inertial>
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
         <mesh filename="package://elkapod_description/meshes/body/control_module.STL" />
       </geometry>
-      <material name="orange_pla"/>
+      <material name="orange_pla" />
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
@@ -65,14 +67,15 @@
     <inertial>
       <origin xyz="-1.2221E-17 0.00073241 -0.0031202" rpy="0 0 0" />
       <mass value="0.051567" />
-      <inertia ixx="2.0691E-05" ixy="-6.8955E-21" ixz="-3.4656E-20" iyy="0.00017525" iyz="4.3338E-07" izz="0.00019204" />
+      <inertia ixx="2.0691E-05" ixy="-6.8955E-21" ixz="-3.4656E-20" iyy="0.00017525"
+        iyz="4.3338E-07" izz="0.00019204" />
     </inertial>
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
         <mesh filename="package://elkapod_description/meshes/body/front_grille.STL" />
       </geometry>
-      <material name="orange_pla"/>
+      <material name="orange_pla" />
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
@@ -83,7 +86,7 @@
   </link>
 
   <joint name="front_grille_fixed" type="fixed">
-    <origin xyz="0.1623 0 0" rpy="1.5708 0 1.5708" />
+    <origin xyz="0.1623 0 0" rpy="1.570796327 0 1.570796327" />
     <parent link="base_link" />
     <child link="front_grille" />
     <axis xyz="0 0 0" />
@@ -94,14 +97,15 @@
     <inertial>
       <origin xyz="0.058453 0.03 0.0029846" rpy="0 0 0" />
       <mass value="0.042927" />
-      <inertia ixx="1.6075E-05" ixy="1.7888E-19" ixz="1.0449E-08" iyy="1.0788E-05" iyz="4.1841E-20" izz="2.593E-05" />
+      <inertia ixx="1.6075E-05" ixy="1.7888E-19" ixz="1.0449E-08" iyy="1.0788E-05" iyz="4.1841E-20"
+        izz="2.593E-05" />
     </inertial>
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
         <mesh filename="package://elkapod_description/meshes/body/back_grilles.STL" />
       </geometry>
-      <material name="orange_pla"/>
+      <material name="orange_pla" />
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
@@ -112,7 +116,7 @@
   </link>
 
   <joint name="back_grilles_fixed" type="fixed">
-    <origin xyz="-0.15412 0.059195 -0.03" rpy="1.5708 0 -1.5708" />
+    <origin xyz="-0.15412 0.059195 -0.03" rpy="1.570796327 0 -1.570796327" />
     <parent link="base_link" />
     <child link="back_grilles" />
     <axis xyz="0 0 0" />
@@ -122,7 +126,8 @@
     <inertial>
       <origin xyz="0.07377 0.03 -0.037189" rpy="0 0 0" />
       <mass value="0.016676" />
-      <inertia ixx="1.8158E-05" ixy="4.5854E-21" ixz="-2.8456E-19" iyy="1.1749E-05" iyz="3.0718E-12" izz="6.6615E-06" />
+      <inertia ixx="1.8158E-05" ixy="4.5854E-21" ixz="-2.8456E-19" iyy="1.1749E-05" iyz="3.0718E-12"
+        izz="6.6615E-06" />
 
     </inertial>
     <visual>
@@ -130,7 +135,7 @@
       <geometry>
         <mesh filename="package://elkapod_description/meshes/body/left_side_grille.STL" />
       </geometry>
-      <material name="black_pla"/>
+      <material name="black_pla" />
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
@@ -141,12 +146,12 @@
   </link>
 
   <joint name="left_side_grille_fixed" type="fixed">
-    <origin xyz="0.039489 0.19711 0.03" rpy="-1.5708 0 -1.5708" />
+    <origin xyz="0.039489 0.19711 0.03" rpy="-1.570796327 0 -1.570796327" />
     <parent link="base_link" />
     <child link="left_side_grille" />
     <axis xyz="0 0 0" />
   </joint>
-  
+
   <link name="right_side_grille">
     <inertial>
       <origin
@@ -154,14 +159,15 @@
         rpy="0 0 0" />
       <mass
         value="0.016676" />
-      <inertia ixx="1.8158E-05" ixy="-4.8096E-22" ixz="1.1647E-21" iyy="1.1749E-05" iyz="3.0718E-12" izz="6.6615E-06" />
+      <inertia ixx="1.8158E-05" ixy="-4.8096E-22" ixz="1.1647E-21" iyy="1.1749E-05" iyz="3.0718E-12"
+        izz="6.6615E-06" />
     </inertial>
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
         <mesh filename="package://elkapod_description/meshes/body/right_side_grille.STL" />
       </geometry>
-      <material name="black_pla"/>
+      <material name="black_pla" />
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
@@ -172,7 +178,7 @@
   </link>
 
   <joint name="right_side_grille_fixed" type="fixed">
-    <origin xyz="-0.034889 -0.19711 0.03" rpy="-1.5708 0 1.5708" />
+    <origin xyz="-0.034889 -0.19711 0.03" rpy="-1.570796327 0 1.570796327" />
     <parent link="base_link" />
     <child link="right_side_grille" />
     <axis xyz="0 0 0" />
@@ -191,7 +197,7 @@
       <geometry>
         <mesh filename="package://elkapod_description/meshes/body/rubber_feet.STL" />
       </geometry>
-      <material name="pure_black"/>
+      <material name="pure_black" />
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />

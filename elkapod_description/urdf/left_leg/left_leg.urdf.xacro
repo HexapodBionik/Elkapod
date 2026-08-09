@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:macro name="leg_left" params="leg_name parent pos_x pos_y pos_z roll pitch yaw">
+  <xacro:macro name="leg_left"
+    params="leg_name parent pos_x pos_y pos_z roll pitch yaw fcp_joint_type:=prismatic">
 
     <!-- Base Link -->
     <link name="${leg_name}_base_link">
       <inertial>
         <origin xyz="-0.0097901 0.0013901 0.021894" rpy="0 0 0" />
         <mass value="0.080802" />
-        <inertia ixx="1.2766E-05" ixy="5.3087E-13" ixz="-2.8241E-08" iyy="2.2999E-05" iyz="-4.397E-07" izz="1.6289E-05" />
+        <inertia ixx="1.2766E-05" ixy="5.3087E-13" ixz="-2.8241E-08" iyy="2.2999E-05"
+          iyz="-4.397E-07" izz="1.6289E-05" />
       </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
           <mesh filename="package://elkapod_description/meshes/left_leg/base_link.STL" />
         </geometry>
-        <material name="leg_black"/>
+        <material name="leg_black" />
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
@@ -23,7 +25,7 @@
         </geometry>
       </collision>
     </link>
-    
+
     <joint name="${leg_name}_base_joint" type="fixed">
       <origin xyz="${pos_x} ${pos_y} ${pos_z}" rpy="${roll} ${pitch} ${yaw}" />
       <parent link="${parent}" />
@@ -36,14 +38,15 @@
       <inertial>
         <origin xyz="0.033799 0.00051236 0.00054959" rpy="0 0 0" />
         <mass value="0.042693" />
-        <inertia ixx="1.9802E-05" ixy="8.7559E-13" ixz="-5.8218E-13" iyy="1.6706E-05" iyz="-1.8291E-12" izz="1.6706E-05" />
+        <inertia ixx="1.9802E-05" ixy="8.7559E-13" ixz="-5.8218E-13" iyy="1.6706E-05"
+          iyz="-1.8291E-12" izz="1.6706E-05" />
       </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
           <mesh filename="package://elkapod_description/meshes/left_leg/linkA.STL" />
         </geometry>
-        <material name="leg_black"/>
+        <material name="leg_black" />
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
@@ -59,7 +62,7 @@
       <parent link="${leg_name}_base_link" />
       <child link="${leg_name}_linkA" />
       <axis xyz="0 0 1" />
-      <limit lower="-1.57" upper="1.57" effort="50.0" velocity="7.3" />
+      <limit lower="-1.570796327" upper="1.570796327" effort="50.0" velocity="7.3" />
     </joint>
 
     <!-- Link B -->
@@ -67,14 +70,15 @@
       <inertial>
         <origin xyz="0.046185 0.0047076 0.0034661" rpy="0 0 0" />
         <mass value="0.16871" />
-        <inertia ixx="2.7946E-05" ixy="-8.4625E-13" ixz="2.1218E-12" iyy="4.5398E-05" iyz="7.1144E-07" izz="3.3864E-05" />
+        <inertia ixx="2.7946E-05" ixy="-8.4625E-13" ixz="2.1218E-12" iyy="4.5398E-05"
+          iyz="7.1144E-07" izz="3.3864E-05" />
       </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
           <mesh filename="package://elkapod_description/meshes/left_leg/linkB.STL" />
         </geometry>
-        <material name="leg_black"/>
+        <material name="leg_black" />
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
@@ -86,11 +90,11 @@
 
     <!-- Joint J2 -->
     <joint name="${leg_name}_J2" type="revolute">
-      <origin xyz="0.0676 0 0" rpy="1.5708 0 0" />
+      <origin xyz="0.0676 0 0" rpy="1.570796327 0 0" />
       <parent link="${leg_name}_linkA" />
       <child link="${leg_name}_linkB" />
       <axis xyz="0 0 1" />
-      <limit lower="-1.57" upper="1.57" effort="50.0" velocity="7.3" />
+      <limit lower="-1.570796327" upper="1.570796327" effort="50.0" velocity="7.3" />
     </joint>
 
     <!-- Link C -->
@@ -98,14 +102,15 @@
       <inertial>
         <origin xyz="0.062526 0.013836 -0.00039598" rpy="0 0 0" />
         <mass value="0.045919" />
-        <inertia ixx="1.7731E-05" ixy="-3.3492E-06" ixz="3.2696E-07" iyy="6.1677E-05" iyz="6.793E-08" izz="5.2343E-05" />
+        <inertia ixx="1.7731E-05" ixy="-3.3492E-06" ixz="3.2696E-07" iyy="6.1677E-05"
+          iyz="6.793E-08" izz="5.2343E-05" />
       </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
           <mesh filename="package://elkapod_description/meshes/left_leg/linkC.STL" />
         </geometry>
-        <material name="orange_pla"/>
+        <material name="orange_pla" />
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
@@ -121,7 +126,7 @@
       <parent link="${leg_name}_linkB" />
       <child link="${leg_name}_linkC" />
       <axis xyz="0 0 1" />
-      <limit lower="-3.14" upper="1.57" effort="50.0" velocity="7.3" />
+      <limit lower="-3.141592654" upper="0.0" effort="50.0" velocity="7.3" />
     </joint>
 
     <!-- FCP Link -->
@@ -129,12 +134,13 @@
       <inertial>
         <origin xyz="0.000341547110339208 2.77555756156289E-17 1.73472347597681E-18" rpy="0 0 0" />
         <mass value="0.0111617991818567" />
-        <inertia ixx="1.19862E-06" ixy="-5.67881E-40" ixz="-4.86711E-24" iyy="1.06703E-06" iyz="-1.94856E-26" izz="1.06703E-06" />
+        <inertia ixx="1.19862E-06" ixy="-5.67881E-40" ixz="-4.86711E-24" iyy="1.06703E-06"
+          iyz="-1.94856E-26" izz="1.06703E-06" />
       </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <sphere radius="0.01"/>
+          <sphere radius="0.01" />
         </geometry>
         <material name="">
           <color rgba="1 0 0 1" />
@@ -143,7 +149,7 @@
       <collision name="${leg_name}_FCP">
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <sphere radius="0.01"/>
+          <sphere radius="0.01" />
         </geometry>
       </collision>
     </link>
@@ -156,21 +162,6 @@
       <minDepth>0.01</minDepth>
     </gazebo>
 
-    <!-- <gazebo reference="${leg_name}_FCP_joint">
-        <sensor name="${leg_name}_fsr" type="force_torque">
-          <always_on>true</always_on>
-          <update_rate>100</update_rate>
-          <visualize>true</visualize>
-          <topic>/legs/${leg_name}_fsr</topic>
-          <enable_metrics>true</enable_metrics>
-          <pose>0 0 0 0 0 0</pose>
-          <force_torque>
-            <frame>sensor</frame>
-            <measure_direction>child_to_parent</measure_direction>
-          </force_torque> 
-        </sensor>
-    </gazebo> -->
-
     <gazebo reference="${leg_name}_FCP">
       <sensor name="contact" type="contact">
         <always_on>true</always_on>
@@ -182,15 +173,15 @@
       </sensor>
     </gazebo>
 
-    
+
     <!-- Fixed Joint for FCP -->
-    <joint name="${leg_name}_FCP_joint" type="prismatic">
+    <joint name="${leg_name}_FCP_joint" type="${fcp_joint_type}">
       <origin xyz="0.2135 0.0085747 0" rpy="0 0 -0.29403" />
       <parent link="${leg_name}_linkC" />
       <child link="${leg_name}_FCP" />
       <axis xyz="1 0 0" />
-      <limit effort="1000.0" lower="-0.0001" upper="0.0001" velocity="30"/>
-      <dynamics damping="10.0" friction="0.0"/>
+      <limit effort="1000.0" lower="-0.0001" upper="0.0001" velocity="30" />
+      <dynamics damping="10.0" friction="0.0" />
     </joint>
   </xacro:macro>
 </robot>
