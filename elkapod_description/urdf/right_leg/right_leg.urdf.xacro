@@ -11,12 +11,15 @@
         <mass value="0.0808021222974834" />
         <inertia ixx="1.27655E-05" ixy="5.10643E-13" ixz="-2.82428E-08" iyy="2.29991E-05"
           iyz="4.39699E-07" izz="1.62889E-05" />
+        <inertia ixx="1.27655E-05" ixy="5.10643E-13" ixz="-2.82428E-08" iyy="2.29991E-05"
+          iyz="4.39699E-07" izz="1.62889E-05" />
       </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
           <mesh filename="package://elkapod_description/meshes/right_leg/base_link.STL" />
         </geometry>
+        <material name="leg_black" />
         <material name="leg_black" />
       </visual>
       <collision>
@@ -32,6 +35,10 @@
       <parent link="${parent}" />
       <child link="${leg_name}_base_link" />
       <axis xyz="0 0 0" />
+      <origin xyz="${pos_x} ${pos_y} ${pos_z}" rpy="${roll} ${pitch} ${yaw}" />
+      <parent link="${parent}" />
+      <child link="${leg_name}_base_link" />
+      <axis xyz="0 0 0" />
     </joint>
 
     <!-- Link A -->
@@ -41,12 +48,15 @@
         <mass value="0.0426933486153037" />
         <inertia ixx="1.98022E-05" ixy="-2.13458E-13" ixz="-5.41372E-13" iyy="1.670609E-05"
           iyz="-2.17248E-12" izz="1.67061E-05" />
+        <inertia ixx="1.98022E-05" ixy="-2.13458E-13" ixz="-5.41372E-13" iyy="1.670609E-05"
+          iyz="-2.17248E-12" izz="1.67061E-05" />
       </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
           <mesh filename="package://elkapod_description/meshes/right_leg/linkA.STL" />
         </geometry>
+        <material name="leg_black" />
         <material name="leg_black" />
       </visual>
       <collision>
@@ -74,12 +84,15 @@
         <mass value="0.168678406706635" />
         <inertia ixx="2.79458E-05" ixy="8.13719E-13" ixz="2.16502E-12" iyy="4.53975E-05"
           iyz="-7.11437E-07" izz="3.38637E-05" />
+        <inertia ixx="2.79458E-05" ixy="8.13719E-13" ixz="2.16502E-12" iyy="4.53975E-05"
+          iyz="-7.11437E-07" izz="3.38637E-05" />
       </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
           <mesh filename="package://elkapod_description/meshes/right_leg/linkB.STL" />
         </geometry>
+        <material name="leg_black" />
         <material name="leg_black" />
       </visual>
       <collision>
@@ -106,12 +119,15 @@
         <mass value="0.0457999682692435" />
         <inertia ixx="1.77293E-05" ixy="-3.34917E-06" ixz="3.26962E-07" iyy="6.16756E-05"
           iyz="6.79304E-08" izz="5.23429E-05" />
+        <inertia ixx="1.77293E-05" ixy="-3.34917E-06" ixz="3.26962E-07" iyy="6.16756E-05"
+          iyz="6.79304E-08" izz="5.23429E-05" />
       </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
           <mesh filename="package://elkapod_description/meshes/right_leg/linkC.STL" />
         </geometry>
+        <material name="orange_pla" />
         <material name="orange_pla" />
       </visual>
       <collision>
@@ -138,10 +154,13 @@
         <mass value="0.0111617991818567" />
         <inertia ixx="1.19862E-06" ixy="1.05879E-22" ixz="1.15499E-24" iyy="1.06703E-06"
           iyz="9.44775E-26" izz="1.06703E-06" />
+        <inertia ixx="1.19862E-06" ixy="1.05879E-22" ixz="1.15499E-24" iyy="1.06703E-06"
+          iyz="9.44775E-26" izz="1.06703E-06" />
       </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
+          <sphere radius="0.01" />
           <sphere radius="0.01" />
         </geometry>
         <material name="">
@@ -151,6 +170,7 @@
       <collision name="${leg_name}_FCP">
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
+          <sphere radius="0.01" />
           <sphere radius="0.01" />
         </geometry>
       </collision>

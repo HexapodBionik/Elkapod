@@ -175,7 +175,11 @@
 
 
     <!-- Fixed Joint for FCP -->
+<<<<<<< HEAD
     <joint name="${leg_name}_FCP_joint" type="${fcp_joint_type}">
+=======
+    <joint name="${leg_name}_FCP_joint" type="fixed">
+>>>>>>> 69521bc (Old locomotion stack Isaac integration)
       <origin xyz="0.2135 0.0085747 0" rpy="0 0 -0.29403" />
       <parent link="${leg_name}_linkC" />
       <child link="${leg_name}_FCP" />

@@ -51,7 +51,6 @@ def generate_launch_description():
         parameters=[robot_controllers],
         output="both",
         emulate_tty=True,
-        condition=UnlessCondition(LaunchConfiguration("sim_mode")),
     )
 
     controllers = TimerAction(

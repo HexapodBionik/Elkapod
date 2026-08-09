@@ -235,7 +235,7 @@ controller_interface::CallbackReturn ElkapodGaitController::on_error(
 
 controller_interface::return_type ElkapodGaitController::update(const rclcpp::Time &time,
                                                                 const rclcpp::Duration &period) {
-  if (period.seconds() <= 0.0 || !imu_received_) {
+  if (period.seconds() <= 0.0) {
     return controller_interface::return_type::OK;
   }
 
@@ -338,10 +338,10 @@ controller_interface::return_type ElkapodGaitController::update(const rclcpp::Ti
 
   // Pitch && Roll PIDs
   const double e_roll = set_roll_ - roll_;
-  double u_roll = roll_pid_->compute_command(e_roll, period);
+  double u_roll = 0;  // roll_pid_->compute_command(e_roll, period);
 
   const double e_pitch = set_pitch_ - pitch_;
-  double u_pitch = pitch_pid_->compute_command(e_pitch, period);
+  double u_pitch = 0;  // pitch_pid_->compute_command(e_pitch, period);
 
   if (state_ != State::IDLE) {
     u_roll = 0.0;

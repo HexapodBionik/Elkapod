@@ -15,6 +15,7 @@
   <depend>elkapod_description</depend>
   <depend>elkapod_motion_manager</depend>
   <depend>elkapod_ik_controller</depend>
+  <depend>topic_based_ros2_control</depend>
   <depend condition="$RUN_MODE == pc">elkapod_gazebo</depend>
   <depend condition="$RUN_MODE == pc">rviz2</depend>
   <depend condition="$RUN_MODE == pc">elkapod_controller_gui</depend>
@@ -22,7 +23,7 @@
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>
   <test_depend>ament_pep257</test_depend>
-  <test_depend>python3-pytest</test_depend> 
+  <test_depend>python3-pytest</test_depend>
 
   <export>
     <build_type>ament_python</build_type>
