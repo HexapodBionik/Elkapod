@@ -2,28 +2,28 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
     <material name="orange_pla">
-        <color rgba="0.9411 0.4196 0.0470 1"/>
+        <color rgba="0.9411 0.4196 0.0470 1" />
     </material>
 
     <material name="pure_black">
-        <color rgba="0 0 0 1"/>
+        <color rgba="0 0 0 1" />
     </material>
 
     <material name="lidar_black">
-        <color rgba="0.025 0.025 0.025 1"/>
+        <color rgba="0.025 0.025 0.025 1" />
         <specular>1.0 1.0 1.0 1.0</specular>
     </material>
 
     <material name="black_pla">
-        <color rgba="0.05 0.05 0.05 1"/>
+        <color rgba="0.05 0.05 0.05 1" />
     </material>
 
     <material name="leg_black">
-        <color rgba="0.25098 0.25098 0.25098 1"/>
+        <color rgba="0.25098 0.25098 0.25098 1" />
     </material>
 
     <material name="aluminium_base">
-        <color rgba="0.8902 0.8902 0.91373 1"/>
+        <color rgba="0.8902 0.8902 0.91373 1" />
     </material>
 
 </robot>

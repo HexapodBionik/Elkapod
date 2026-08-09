@@ -5,47 +5,50 @@
     <!-- Sim mode joint definition -->
     <xacro:macro name="sim_joint_interface" params="name">
         <joint name="${name}">
-            <command_interface name="position"/>
+            <command_interface name="position" />
 
-            <state_interface name="position"/>
-            <state_interface name="velocity"/>
-            <state_interface name="effort"/> 
+            <state_interface name="position" />
+            <state_interface name="velocity" />
+            <state_interface name="effort" />
         </joint>
     </xacro:macro>
 
     <xacro:macro name="sim_fcp_joint_interface" params="name">
         <joint name="${name}">
-            <state_interface name="position"/>
-            <state_interface name="velocity"/>
-            <state_interface name="effort"/> 
+            <state_interface name="position" />
+            <state_interface name="velocity" />
+            <state_interface name="effort" />
         </joint>
     </xacro:macro>
 
     <!-- Real world joint definition -->
     <xacro:macro name="joint_interface" params="name">
         <joint name="${name}">
-            <command_interface name="position"/>
-            <state_interface name="position"/>
+            <command_interface name="position" />
+            <state_interface name="position" />
         </joint>
     </xacro:macro>
 
     <xacro:macro name="elkapod_ros2_control" params="sim_mode:=^|false">
         <!-- IMU link && joint -->
-        <link name="imu_link"/>
+        <link name="imu_link" />
         <joint name="imu_joint" type="fixed">
-            <parent link="base_link"/>
-            <child link="imu_link"/>
+            <parent link="base_link" />
+            <child link="imu_link" />
         </joint>
 
         <xacro:if value="${sim_mode}">
             <!-- Plugins loading -->
             <gazebo>
-                <plugin name="gz_ros2_control::GazeboSimROS2ControlPlugin" filename="libgz_ros2_control-system.so">
+                <plugin name="gz_ros2_control::GazeboSimROS2ControlPlugin"
+                    filename="libgz_ros2_control-system.so">
                     <parameters>$(find elkapod_description)/config/my_controllers.yaml</parameters>
-                    <!-- <parameters>$(find elkapod_description)/config/gaz_ros2_ctl_use_sim.yaml</parameters> -->
+                    <!-- <parameters>$(find
+                    elkapod_description)/config/gaz_ros2_ctl_use_sim.yaml</parameters> -->
                 </plugin>
 
-                <plugin filename="gz-sim-odometry-publisher-system" name="gz::sim::systems::OdometryPublisher">
+                <plugin filename="gz-sim-odometry-publisher-system"
+                    name="gz::sim::systems::OdometryPublisher">
                     <odom_frame>base_link</odom_frame>
                     <robot_base_frame>base_link</robot_base_frame>
                     <odom_publish_frequency>50</odom_publish_frequency>
@@ -58,55 +61,55 @@
                 <hardware>
                     <plugin>gz_ros2_control/GazeboSimSystem</plugin>
                 </hardware>
-                
-                
-                <xacro:sim_joint_interface name="leg1_J1"/>
-                <xacro:sim_joint_interface name="leg1_J2"/>
-                <xacro:sim_joint_interface name="leg1_J3"/>
-                
-                <xacro:sim_joint_interface name="leg3_J1"/>
-                <xacro:sim_joint_interface name="leg3_J2"/>
-                <xacro:sim_joint_interface name="leg3_J3"/>
-                
-                <xacro:sim_joint_interface name="leg5_J1"/>
-                <xacro:sim_joint_interface name="leg5_J2"/>
-                <xacro:sim_joint_interface name="leg5_J3"/>
-                
-                
-                <xacro:sim_joint_interface name="leg2_J1"/>
-                <xacro:sim_joint_interface name="leg2_J2"/>
-                <xacro:sim_joint_interface name="leg2_J3"/>
-                
-                <xacro:sim_joint_interface name="leg4_J1"/>
-                <xacro:sim_joint_interface name="leg4_J2"/>
-                <xacro:sim_joint_interface name="leg4_J3"/>
-                
-                <xacro:sim_joint_interface name="leg6_J1"/>
-                <xacro:sim_joint_interface name="leg6_J2"/>
-                <xacro:sim_joint_interface name="leg6_J3"/>
+
+
+                <xacro:sim_joint_interface name="leg1_J1" />
+                <xacro:sim_joint_interface name="leg1_J2" />
+                <xacro:sim_joint_interface name="leg1_J3" />
+
+                <xacro:sim_joint_interface name="leg3_J1" />
+                <xacro:sim_joint_interface name="leg3_J2" />
+                <xacro:sim_joint_interface name="leg3_J3" />
+
+                <xacro:sim_joint_interface name="leg5_J1" />
+                <xacro:sim_joint_interface name="leg5_J2" />
+                <xacro:sim_joint_interface name="leg5_J3" />
+
+
+                <xacro:sim_joint_interface name="leg2_J1" />
+                <xacro:sim_joint_interface name="leg2_J2" />
+                <xacro:sim_joint_interface name="leg2_J3" />
+
+                <xacro:sim_joint_interface name="leg4_J1" />
+                <xacro:sim_joint_interface name="leg4_J2" />
+                <xacro:sim_joint_interface name="leg4_J3" />
+
+                <xacro:sim_joint_interface name="leg6_J1" />
+                <xacro:sim_joint_interface name="leg6_J2" />
+                <xacro:sim_joint_interface name="leg6_J3" />
 
                 <!-- FCP joints (only for joint states broadcaster)-->
-                <xacro:sim_fcp_joint_interface name="leg1_FCP_joint"/>
-                <xacro:sim_fcp_joint_interface name="leg2_FCP_joint"/>
-                <xacro:sim_fcp_joint_interface name="leg3_FCP_joint"/>
-                <xacro:sim_fcp_joint_interface name="leg4_FCP_joint"/>
-                <xacro:sim_fcp_joint_interface name="leg5_FCP_joint"/>
-                <xacro:sim_fcp_joint_interface name="leg6_FCP_joint"/>
+                <xacro:sim_fcp_joint_interface name="leg1_FCP_joint" />
+                <xacro:sim_fcp_joint_interface name="leg2_FCP_joint" />
+                <xacro:sim_fcp_joint_interface name="leg3_FCP_joint" />
+                <xacro:sim_fcp_joint_interface name="leg4_FCP_joint" />
+                <xacro:sim_fcp_joint_interface name="leg5_FCP_joint" />
+                <xacro:sim_fcp_joint_interface name="leg6_FCP_joint" />
 
                 <!-- Sensors -->
                 <sensor name="imu_sensor" type="imu">
                     <param name="frame_id">imu_link</param>
                     <param name="update_rate">50.0</param>
-                    <state_interface name="orientation.x"/>
-                    <state_interface name="orientation.y"/>
-                    <state_interface name="orientation.z"/>
-                    <state_interface name="orientation.w"/>
-                    <state_interface name="angular_velocity.x"/>
-                    <state_interface name="angular_velocity.y"/>
-                    <state_interface name="angular_velocity.z"/>
-                    <state_interface name="linear_acceleration.x"/>
-                    <state_interface name="linear_acceleration.y"/>
-                    <state_interface name="linear_acceleration.z"/>
+                    <state_interface name="orientation.x" />
+                    <state_interface name="orientation.y" />
+                    <state_interface name="orientation.z" />
+                    <state_interface name="orientation.w" />
+                    <state_interface name="angular_velocity.x" />
+                    <state_interface name="angular_velocity.y" />
+                    <state_interface name="angular_velocity.z" />
+                    <state_interface name="linear_acceleration.x" />
+                    <state_interface name="linear_acceleration.y" />
+                    <state_interface name="linear_acceleration.z" />
                 </sensor>
 
             </ros2_control>
@@ -190,47 +193,47 @@
                     <param name="spi_cs">0</param>
                     <param name="spi_mode">2</param>
                     <param name="spi_speed_hz">1000000</param>
-                </hardware> 
+                </hardware>
 
-                <xacro:joint_interface name="leg1_J1"/>
-                <xacro:joint_interface name="leg1_J2"/>
-                <xacro:joint_interface name="leg1_J3"/>
-                
-                <xacro:joint_interface name="leg3_J1"/>
-                <xacro:joint_interface name="leg3_J2"/>
-                <xacro:joint_interface name="leg3_J3"/>
-                
-                <xacro:joint_interface name="leg5_J1"/>
-                <xacro:joint_interface name="leg5_J2"/>
-                <xacro:joint_interface name="leg5_J3"/>
-                
-                
-                <xacro:joint_interface name="leg2_J1"/>
-                <xacro:joint_interface name="leg2_J2"/>
-                <xacro:joint_interface name="leg2_J3"/>
-                
-                <xacro:joint_interface name="leg4_J1"/>
-                <xacro:joint_interface name="leg4_J2"/>
-                <xacro:joint_interface name="leg4_J3"/>
-                
-                <xacro:joint_interface name="leg6_J1"/>
-                <xacro:joint_interface name="leg6_J2"/>
-                <xacro:joint_interface name="leg6_J3"/>
+                <xacro:joint_interface name="leg1_J1" />
+                <xacro:joint_interface name="leg1_J2" />
+                <xacro:joint_interface name="leg1_J3" />
+
+                <xacro:joint_interface name="leg3_J1" />
+                <xacro:joint_interface name="leg3_J2" />
+                <xacro:joint_interface name="leg3_J3" />
+
+                <xacro:joint_interface name="leg5_J1" />
+                <xacro:joint_interface name="leg5_J2" />
+                <xacro:joint_interface name="leg5_J3" />
+
+
+                <xacro:joint_interface name="leg2_J1" />
+                <xacro:joint_interface name="leg2_J2" />
+                <xacro:joint_interface name="leg2_J3" />
+
+                <xacro:joint_interface name="leg4_J1" />
+                <xacro:joint_interface name="leg4_J2" />
+                <xacro:joint_interface name="leg4_J3" />
+
+                <xacro:joint_interface name="leg6_J1" />
+                <xacro:joint_interface name="leg6_J2" />
+                <xacro:joint_interface name="leg6_J3" />
 
                 <!-- Sensors -->
                 <sensor name="imu_sensor" type="imu">
                     <param name="frame_id">imu_link</param>
                     <param name="update_rate">50.0</param>
-                    <state_interface name="orientation.x"/>
-                    <state_interface name="orientation.y"/>
-                    <state_interface name="orientation.z"/>
-                    <state_interface name="orientation.w"/>
-                    <state_interface name="angular_velocity.x"/>
-                    <state_interface name="angular_velocity.y"/>
-                    <state_interface name="angular_velocity.z"/>
-                    <state_interface name="linear_acceleration.x"/>
-                    <state_interface name="linear_acceleration.y"/>
-                    <state_interface name="linear_acceleration.z"/>
+                    <state_interface name="orientation.x" />
+                    <state_interface name="orientation.y" />
+                    <state_interface name="orientation.z" />
+                    <state_interface name="orientation.w" />
+                    <state_interface name="angular_velocity.x" />
+                    <state_interface name="angular_velocity.y" />
+                    <state_interface name="angular_velocity.z" />
+                    <state_interface name="linear_acceleration.x" />
+                    <state_interface name="linear_acceleration.y" />
+                    <state_interface name="linear_acceleration.z" />
                 </sensor>
 
             </ros2_control>
